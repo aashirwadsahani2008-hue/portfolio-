@@ -1,74 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Builder | Aashirwad Shan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="02_style.css.css" />
 </head>
 <body>
-    <!-- Header / Navigation -->
-    <header>
-        <div class="logo">
-            <img src="assets/logo.png" alt="Logo" id="logo">
-            <span>My Portfolio</span>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <button id="theme-toggle">Toggle Theme</button>
-    </header>
+  <header class="site-header" id="top">
+    <div class="brand">
+      <img src="05_logo.png.png" alt="Aashirwad Shan logo" class="brand-logo" />
+      <div>
+        <p class="eyebrow">Portfolio Builder</p>
+        <h1>Build & Publish a Standout Professional Portfolio</h1>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button id="themeToggle" class="btn btn-ghost" type="button">Toggle Dark Mode</button>
+      <a class="btn" href="#builder">Start Building</a>
+    </div>
+  </header>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="profile">
-            <img src="assets/profile.jpg" alt="Profile Picture" id="profile-pic">
-            <div class="bio">
-                <h1 id="name">Your Name</h1>
-                <p id="bio-text">Write a brief bio about yourself here. Highlight your experience, skills, and passion.</p>
-            </div>
-        </div>
+  <main>
+    <section class="panel instructions" id="instructions">
+      <h2>How it works (3 steps)</h2>
+      <ol>
+        <li><strong>Enter your details:</strong> Use the left-side builder form to add your name, headline, bio, skills, and projects.</li>
+        <li><strong>Personalize your look:</strong> Choose a theme color and preview updates instantly in the live portfolio card.</li>
+        <li><strong>Publish confidently:</strong> Click “Export My Data” to save your portfolio JSON and publish the page on any static host (GitHub Pages, Netlify, Vercel).</li>
+      </ol>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="projects-container" id="projects-container">
-            <!-- Projects will be dynamically added here -->
-        </div>
-        <button id="add-project-btn">Add New Project</button>
-    </section>
+    <section class="workspace" id="builder">
+      <article class="panel builder">
+        <h2>Portfolio Builder</h2>
+        <form id="portfolioForm">
+          <label>
+            Full Name
+            <input id="inputName" type="text" value="Aashirwad Shan" required />
+          </label>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <h2>Skills</h2>
-        <div class="skills-container" id="skills-container">
-            <!-- Skills will be dynamically added here -->
-        </div>
-        <button id="add-skill-btn">Add New Skill</button>
-    </section>
+          <label>
+            Professional Headline
+            <input id="inputHeadline" type="text" value="Full-Stack Developer | UI/UX Enthusiast" required />
+          </label>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact</h2>
-        <form id="contact-form">
-            <input type="text" id="contact-name" placeholder="Your Name" required>
-            <input type="email" id="contact-email" placeholder="Your Email" required>
-            <textarea id="contact-message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send</button>
+          <label>
+            About You
+            <textarea id="inputBio" rows="4" required>I create scalable web experiences with clean code, modern design systems, and user-first thinking.</textarea>
+          </label>
+
+          <label>
+            Email
+            <input id="inputEmail" type="email" value="hello@example.com" required />
+          </label>
+
+          <label>
+            Theme Color
+            <input id="inputTheme" type="color" value="#355070" />
+          </label>
+
+          <label>
+            Skills (comma-separated)
+            <input id="inputSkills" type="text" value="JavaScript, React, Node.js, UI Design, API Development" />
+          </label>
+
+          <label>
+            Project #1 Title
+            <input id="inputProject1Title" type="text" value="SaaS Dashboard Redesign" />
+          </label>
+
+          <label>
+            Project #1 Description
+            <textarea id="inputProject1Desc" rows="3">Redesigned analytics workflows and improved user retention with performance-first frontend optimization.</textarea>
+          </label>
+
+          <label>
+            Project #2 Title
+            <input id="inputProject2Title" type="text" value="Developer Portfolio Platform" />
+          </label>
+
+          <label>
+            Project #2 Description
+            <textarea id="inputProject2Desc" rows="3">Built a reusable portfolio generator with customizable themes and export-ready content for professionals.</textarea>
+          </label>
+
+          <div class="actions">
+            <button class="btn" type="submit">Update Preview</button>
+            <button class="btn btn-ghost" id="exportBtn" type="button">Export My Data</button>
+          </div>
         </form>
+      </article>
+
+      <article class="panel preview" aria-live="polite">
+        <h2>Live Portfolio Preview</h2>
+        <div class="preview-card" id="previewCard">
+          <div class="profile-row">
+            <img src="06_profile.jpg.jpg" alt="Profile portrait" class="profile-img" />
+            <div>
+              <h3 id="previewName">Aashirwad Shan</h3>
+              <p id="previewHeadline">Full-Stack Developer | UI/UX Enthusiast</p>
+              <a id="previewEmail" href="mailto:hello@example.com">hello@example.com</a>
+            </div>
+          </div>
+
+          <section>
+            <h4>About</h4>
+            <p id="previewBio">I create scalable web experiences with clean code, modern design systems, and user-first thinking.</p>
+          </section>
+
+          <section>
+            <h4>Skills</h4>
+            <ul id="previewSkills" class="chips"></ul>
+          </section>
+
+          <section>
+            <h4>Featured Projects</h4>
+            <div id="previewProjects" class="project-list"></div>
+          </section>
+        </div>
+      </article>
     </section>
+  </main>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Your Name. All rights reserved.</p>
-    </footer>
+  <footer class="site-footer">
+    <p>© 2026 Aashirwad Shan Portfolio Builder. Ready for easy customization and publishing.</p>
+    <a href="#top">Back to top ↑</a>
+  </footer>
 
-    <script src="script.js"></script>
+  <script src="03_script.js.js"></script>
 </body>
 </html>
