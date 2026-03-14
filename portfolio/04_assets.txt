@@ -1,2 +1,5 @@
-src="assets/logo.png"
-src="assets/profile.jpg"
+Logo: 05_logo.png.png
+Profile Image: 06_profile.jpg.jpg
+HTML: 01_index_today.html.html
+Styles: 02_style.css.css
+Script: 03_script.js.js
